@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google" content="notranslate">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .choice{
+      /* position: absolute; */
+      /* left : 50%; */
+      /* transform: translate(-50%); */
+      text-align: center;
+    }
+    .button{
+      font-size: 30px;
+      padding: 100px 100px;
+      writing-mode: horizontal-tb;
+    }
+  </style>
+
+  <script>
+    function go_button(c){
+      document.getElementById('in_OR_out').value=c;
+
+      document.getElementsByClassName('choice').submit();
+    }
+  </script>
+
+<script>
+      
+  // 원하는 DOM객체를 인자로 받는다.
+    // document.querySelector("#in_btn").addEventListener('click', function () {
+      function startFS(){
+      if (document.documentElement.requestFullscreen)
+
+        document.querySelector("#container").requestFullscreen();
+
+      else if (document.documentElement.webkitRequestFullScreen)
+
+        document.querySelector("#container").webkitRequestFullScreen();
+      }
+    // });
+  
+  </script>
+</head>
+<body id="container">
+  <div class="form_div">
+  <form class="choice" action="/scanner" method="GET">
+    <div class="submit-wrap" >
+      <button href="#" onclick="go_button('in'); return false;" value="in" class="button">입고</button><br><br><br>
+      <button href="#" onclick="go_button('out'); return false;" value="out" class="button">출고</button>
+      <input type="hidden" name="in_OR_out" id="in_OR_out" value=""/>
+    </div>
+  </form>
+  <button onclick="startFS()" id="FS_btn">Fullscreen</button>
+  <!-- <script>document.getElementById("FS_btn")[0].click();</script> -->
+</div>
+</body>
+</html>
